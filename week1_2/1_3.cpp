@@ -1,19 +1,22 @@
 #include "iostream"
+#include "numeric"
+#include "cmath"
 
 int main(int argc, char* argv[]) {
 
-    double vector1[3] = {2, 4, 7};
-    double vector2[3] = {3, 1, 5};
+    double a[] = {2.3, 4, 7};
+    double b[] = {3, 1, 4.1};
 
-    std::cout << "First vector " << vector1 << "\n";
-    std::cout << "Second vector " << vector2 << "\n";
+    double p;
+    p = a[1] * b[1] + a[2] * b[2] + a[0] * b[0];
+    std::cout << "Scalar product is " << p << '\n';
 
-//    std::cout << "Enter second number\n";
-//    std::cin >> in2;
-//
-//    out1 = in1 * in2;
-//
-//    std::cout << "Product is " << out1 << "\n";
+    double n1, n2;
+    n1 = sqrt(a[1] * a[1] + a[2] * a[2] + a[0] * a[0]);
+    n2 = sqrt(b[1] * b[1] + b[2] * b[2] + b[0] * b[0]);
+
+    std::cout << "First euclidean norm is " << n1 << '\n';
+    std::cout << "Second euclidean norm is " << n2 << '\n';
 
     return 0;
 }
