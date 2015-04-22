@@ -5,3 +5,4 @@ g++ -Wall -o 1_4.out 1_4.cpp
 g++ -Wall -o 1_5.out 1_5.cpp
 g++ -Wall -o 1_6.out 1_6.cpp
 g++ -Wall -o 1_7.out 1_7.cpp
+g++ -Wall -o 2_3.out 2_3.cpp

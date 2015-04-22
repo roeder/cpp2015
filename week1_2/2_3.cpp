@@ -9,3 +9,36 @@ are entered by the user from the keyboard. Your program should prompt the user t
 that point exceeds 100.
 3. Modify your code so that, if the user has entered an incorrect integer, they may
 enter “−2” to reset the sum to zero and begin entering integers again. */
+
+#include <iostream>
+
+int main(int argc, char* argv[]) {
+
+ int in;
+ int cumsum;
+ cumsum = 0;
+
+ bool keep_summing;
+ keep_summing = true;
+
+ while (keep_summing) {
+  std::cout << "Enter positive integers. Enter -1 to terminate, -2 to restart\n";
+  std::cin >> in;
+  cumsum += in;
+  if (in == -1) {
+   keep_summing = false;
+   cumsum += 1;
+  }
+  if (cumsum > 100) {
+   keep_summing = false;
+  }
+  if (in == -2) {
+   cumsum = 0;
+   std::cout.flush() << "Cumulative sum reset\n";
+  }
+ }
+
+ std::cout << "Cumulative sum is " << cumsum << "\n";
+
+ return 0;
+}
