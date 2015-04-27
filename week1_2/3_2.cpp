@@ -17,8 +17,7 @@ int main(int argc, char * argv[])
         if (!read_file.fail())
             number_of_rows++;
     }
-    std::cout << "Number of rows = "
-    << number_of_rows << "\n";
+    std::cout << "Number of rows = " << number_of_rows << "\n";
     read_file.close();
     return 0;
 }

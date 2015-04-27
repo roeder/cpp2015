@@ -8,3 +8,5 @@ g++ -Wall -o 1_7.out 1_7.cpp
 g++ -Wall -o 2_3.out 2_3.cpp
 g++ -Wall -o 2_4.out 2_4.cpp
 g++ -Wall -o 2_5.out 2_5.cpp
+g++ -Wall -o 3_1.out 3_1.cpp
+g++ -Wall -o 3_2.out 3_2.cpp
