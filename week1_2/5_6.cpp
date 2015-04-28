@@ -61,10 +61,33 @@ int main(int argc, char* argv[]) {
         std::cout.flush() << t[k] << "\n";
     }
 
+    // Scalar times matrix
+    double** D;
+    D = AllocateMatrixMemory(2, 3);
+
+    Multiply(D, 3, A, 2, 3);
+    std::cout << "Matrix D = 3A is\n";
+    for (int i = 0; i < 2; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            std::cout.flush() << D[i][j] << " ";
+        }
+        std::cout.flush() << '\n';
+    }
+
+    Multiply(D, A, 4, 2, 3);
+    std::cout << "Matrix D = A * 4 is\n";
+    for (int i = 0; i < 2; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            std::cout.flush() << D[i][j] << " ";
+        }
+        std::cout.flush() << '\n';
+    }
+
     // Cleanup
     FreeMatrixMemory(2, A);
     FreeMatrixMemory(3, B);
     FreeMatrixMemory(2, C);
+    FreeMatrixMemory(2, D);
     delete[] u;
     delete[] t;
 
@@ -111,6 +134,26 @@ void Multiply(double *res, double **A, double *B, int ARows, int ACols, int BRow
         }
     }
 
+}
+
+// Scalar times matrix
+void Multiply(double **res, double scalar, double **B, int BRows, int BCols)
+{
+    for (int i = 0; i < BRows; ++i) {
+        for (int j = 0; j < BCols; ++j) {
+            res[i][j] = scalar * B[i][j];
+        }
+    }
+}
+
+// Matrix times scalar (same as before)
+void Multiply(double **res, double **B, double scalar, int BRows, int BCols)
+{
+    for (int i = 0; i < BRows; ++i) {
+        for (int j = 0; j < BCols; ++j) {
+            res[i][j] = scalar * B[i][j];
+        }
+    }
 }
 
 double** AllocateMatrixMemory(int numRows, int numCols)
