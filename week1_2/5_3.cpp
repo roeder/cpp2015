@@ -1,7 +1,5 @@
 #include "iostream"
-
-void swap_pointer(double *a, double *b);
-void swap_ref(double &a, double &b);
+#include "5_3.h"
 
 int main(int argc, char* argv[]) {
     double a, b;
