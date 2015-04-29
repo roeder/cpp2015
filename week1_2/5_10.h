@@ -7,5 +7,6 @@ void Multiply(double *res, double **A, double *B, int ARows, int ACols, int BRow
 void FillPkn(double **P, int k, int n, int N);
 double** AllocateMatrixMemory(int numRows, int numCols);
 void FreeMatrixMemory(int numRows, double ** matrix);
+void PrintTriangular(double** A, double* b, int n);
 
 #endif
