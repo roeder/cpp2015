@@ -1,24 +1,9 @@
 #include <cassert>
+#include <cmath>
 #include <iostream>
 #include "5_10.h"
 
 int main(int argc, char* argv[]) {
-//    // Test matrices
-//    double** Ptest;
-//    Ptest = AllocateMatrixMemory(5, 5);
-//
-//    // Filling in P(kn)
-//    FillPkn(Ptest, 2, 4, 5);
-//    std::cout << "Matrix P(24) is\n";
-//    for (int i = 0; i < 5; ++i) {
-//        for (int j = 0; j < 5; ++j) {
-//            std::cout.flush() << Ptest[i][j] << " ";
-//        }
-//        std::cout.flush() << '\n';
-//    }
-//
-//    // Cleanup
-//    FreeMatrixMemory(5, Ptest);
 
     double** A;
     A = AllocateMatrixMemory(3, 3);
@@ -77,21 +62,50 @@ void guassian_elimination(double **A, double *b, double *u, int n){
 
     // First outer loop: obtain triangular form
     for (int k = 0; k < n; ++k) {
-        /*********************************
-         * Pivot goes here
-         **********************/
+
+        // Initialise values for finding row with highest value within column k
+        int max_row = k;
+        double max_value = std::abs(A[k][k]);
+
+        // Loop through all rows below k to find max
+        for (int m = k + 1; m < n; ++m) {
+
+            if (std::abs(A[m][k]) > max_value) {
+                max_row = m;
+                max_value = std::abs(A[m][k]);
+            }
+        }
+
+        // Swap rows by looping through columns
+        for (int l = k; l < n; ++l) {
+            double temp = A[max_row][l];
+            A[max_row][l] = A[k][l];
+            A[k][l] = temp;
+        }
+
+        // Swap rows in the vector b
+        double tmp = b[max_row];
+        b[max_row] = b[k];
+        b[k] = tmp;
+
+        // Loop i through all rows below k
         for (int i = k + 1; i < n; ++i) {
 
+            // Loop j through all columns to the right of k
             for (int j = k + 1; j < n; ++j) {
                 A[i][j] = A[i][j] - A[k][j] * (A[i][k] / A[k][k]);
             }
+
+            // Adjust vector b
             b[i] = b[i] - b[k] * (A[i][k] / A[k][k]);
 
+            // Set lower triangular matrix to 0
             A[i][k] = 0;
 
         }
     }
 
+    // Initial value for result vector u
     u[n - 1] = b[n - 1] / A[n - 1][n - 1];
 
     // Second outer loop: back-substitution to solve u
@@ -106,29 +120,7 @@ void guassian_elimination(double **A, double *b, double *u, int n){
 
         u[k] = (b[k] - temp) / A[k][k];
     }
-}
 
-// Fill in the matrix P(kn)
-void FillPkn(double **P, int k, int n, int N)
-{
-    assert(k <= n);
-    assert(k < N && n < N);
-
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-
-            P[i][j] = 0;
-
-            if (i == n && j == k)
-                P[i][j] = 1;
-
-            if (i == k && j == n)
-                P[i][j] = 1;
-
-            if(i == j && i != k && i != n)
-                P[i][j] = 1;
-        }
-    }
 }
 
 // Matrix times Matrix
@@ -181,7 +173,7 @@ void FreeMatrixMemory(int numRows, double ** matrix)
 
 void PrintTriangular(double** A, double* b, int n)
 {
-    std::cout << "Solved system:\n";
+    std::cout << "Triangular system:\n";
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             std::cout.flush() << A[i][j] << " ";
@@ -189,3 +181,37 @@ void PrintTriangular(double** A, double* b, int n)
         std::cout.flush() << "| " << b[i] << '\n';
     }
 }
+
+void PrintSquareMatrix(double** A, int n)
+{
+    std::cout << "Matrix:\n";
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::cout.flush() << A[i][j] << " ";
+        }
+        std::cout.flush() << '\n';
+    }
+}
+
+//// Fill in the matrix P(kn)
+//void FillPkn(double **P, int k, int n, int N)
+//{
+//    assert(k <= n);
+//    assert(k < N && n < N);
+//
+//    for (int i = 0; i < N; ++i) {
+//        for (int j = 0; j < N; ++j) {
+//
+//            P[i][j] = 0;
+//
+//            if (i == n && j == k)
+//                P[i][j] = 1;
+//
+//            if (i == k && j == n)
+//                P[i][j] = 1;
+//
+//            if(i == j && i != k && i != n)
+//                P[i][j] = 1;
+//        }
+//    }
+//}
