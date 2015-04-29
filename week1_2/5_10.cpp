@@ -1,4 +1,4 @@
-#include <cassert>
+//#include <cassert>
 #include <cmath>
 #include <iostream>
 #include "5_10.h"
@@ -8,15 +8,15 @@ int main(int argc, char* argv[]) {
     double** A;
     A = AllocateMatrixMemory(3, 3);
 
-    A[0][0] = 2;
-    A[0][1] = 1;
-    A[0][2] = -1;
-    A[1][0] = -3;
-    A[1][1] = -1;
-    A[1][2] = 2;
-    A[2][0] = -2;
-    A[2][1] = 1;
-    A[2][2] = 2;
+    A[0][0] = 1;
+    A[0][1] = -1;
+    A[0][2] = 2;
+    A[1][0] = 0;
+    A[1][1] = 0;
+    A[1][2] = -1;
+    A[2][0] = 0;
+    A[2][1] = 2;
+    A[2][2] = -1;
 
     std::cout << "Matrix A is\n";
     for (int i = 0; i < 3; ++i) {
@@ -57,7 +57,6 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-// Main module
 void guassian_elimination(double **A, double *b, double *u, int n){
 
     // First outer loop: obtain triangular form
@@ -119,35 +118,6 @@ void guassian_elimination(double **A, double *b, double *u, int n){
         }
 
         u[k] = (b[k] - temp) / A[k][k];
-    }
-
-}
-
-// Matrix times Matrix
-void Multiply(double **res, double **A, double **B, int ARows, int ACols, int BRows, int BCols)
-{
-    assert(BRows == ACols);
-
-    for (int i = 0; i < ARows; ++i) {
-        for (int j = 0; j < BCols; ++j) {
-            res[i][j] = 0;
-            for (int k = 0; k < ACols; ++k) {
-                res[i][j] += A[i][k] * B[k][j];
-            }
-        }
-    }
-}
-
-// Matrix times Vector
-void Multiply(double *res, double **A, double *B, int ARows, int ACols, int BRows)
-{
-    assert(ACols == BRows);
-
-    for (int i = 0; i < ARows; ++i) {
-        res[i] = 0;
-        for (int j = 0; j < ACols; ++j) {
-            res[i] += A[i][j] * B[j];
-        }
     }
 
 }
@@ -214,4 +184,33 @@ void PrintSquareMatrix(double** A, int n)
 //                P[i][j] = 1;
 //        }
 //    }
+//}
+//
+//// Matrix times Matrix
+//void Multiply(double **res, double **A, double **B, int ARows, int ACols, int BRows, int BCols)
+//{
+//    assert(BRows == ACols);
+//
+//    for (int i = 0; i < ARows; ++i) {
+//        for (int j = 0; j < BCols; ++j) {
+//            res[i][j] = 0;
+//            for (int k = 0; k < ACols; ++k) {
+//                res[i][j] += A[i][k] * B[k][j];
+//            }
+//        }
+//    }
+//}
+//
+//// Matrix times Vector
+//void Multiply(double *res, double **A, double *B, int ARows, int ACols, int BRows)
+//{
+//    assert(ACols == BRows);
+//
+//    for (int i = 0; i < ARows; ++i) {
+//        res[i] = 0;
+//        for (int j = 0; j < ACols; ++j) {
+//            res[i] += A[i][j] * B[j];
+//        }
+//    }
+//
 //}
