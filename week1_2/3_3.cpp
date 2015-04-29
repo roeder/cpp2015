@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[]) {
 
-    implicit_Euler(50);
+    implicit_Euler(10);
 
     return 0;
 }
@@ -26,12 +26,12 @@ void implicit_Euler(int n)
     std::ofstream write_file("xy.dat");
     assert(write_file.is_open());
 
-    write_file << 0 << " " << 1 << "\n";
+    write_file << 0 << "," << 1 << "\n";
 
     for (int i = 1; i < n + 1; ++i) {
         y[i] = y[i - 1] / (1 + h);
         x += h;
-        write_file << x << " " << y[i] << "\n";
+        write_file << x << "," << y[i] << "\n";
         write_file.flush();
     }
 

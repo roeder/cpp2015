@@ -23,6 +23,6 @@ inv_A <- solve(A)
 # 3.3 
 library(ggplot2)
 d <- read.table('Documents/ku_courses/cpp2015/week1_2/xy.dat', 
-                col.names = c('x', 'y'))
+                col.names = c('x', 'y'), sep = ",")
 
 ggplot(d, aes(x = x, y = y)) + geom_point() + ylim(0.2, 1)
