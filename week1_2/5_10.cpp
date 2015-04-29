@@ -60,6 +60,11 @@ int main(int argc, char* argv[]) {
 
     PrintTriangular(A, b, 3);
 
+    std::cout << "Solved vector u is\n";
+    for (int k = 0; k < 3; ++k) {
+        std::cout.flush() << u[k] << "\n";
+    }
+
     FreeMatrixMemory(3, A);
     delete[] b;
     delete[] u;
@@ -85,6 +90,21 @@ void guassian_elimination(double **A, double *b, double *u, int n){
             A[i][k] = 0;
 
         }
+    }
+
+    u[n - 1] = b[n - 1] / A[n - 1][n - 1];
+
+    // Second outer loop: back-substitution to solve u
+    for (int k = n - 2; k > -1 ; --k) {
+
+        double temp;
+        temp = 0;
+
+        for (int i = k + 1; i < n; ++i) {
+            temp += A[k][i] * u[i];
+        }
+
+        u[k] = (b[k] - temp) / A[k][k];
     }
 }
 
