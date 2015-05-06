@@ -27,6 +27,15 @@ int main(int argc, char * argv[]) {
     std::cout << "Second element of zs = "
     << zs[1] << "\n";
 
+    // Test new stuff
+    std::cout << "Real part of z1 = " << z1.GetRealPart() << "\n";
+
+    std::cout << "Imaginary part of z1 = " << z1.GetImaginaryPart() << "\n";
+
+    std::cout << "Friend function: Real part of z1 = " << RealPart(z1) << "\n";
+
+    std::cout << "Friend function: Imaginary part of z1 = " << ImaginaryPart(z1) << "\n";
+
     return 0;
 }
 
@@ -38,3 +47,10 @@ int main(int argc, char * argv[]) {
 //z3 = -z2 = (44 - 117i)
 //z1 + z2 = (-40 + 120i)
 //Second element of zs = (-44 + 117i)
+//Real part of z1 = 4
+//Imaginary part of z1 = 3
+//Friend function: Real part of z1 = 4
+//Friend function: Imaginary part of z1 = 3
+
+
+

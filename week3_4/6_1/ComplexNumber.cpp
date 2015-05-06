@@ -42,13 +42,13 @@ ComplexNumber ComplexNumber::CalculatePower(double n) const
    double arg_of_result = argument*n;
    double real_part = mod_of_result*cos(arg_of_result);
    double imag_part = mod_of_result*sin(arg_of_result);
-   ComplexNumber z(real_part, imag_part); 
-   return z; 
+   ComplexNumber z(real_part, imag_part);
+   return z;
 }
 
 // Overloading the = (assignment) operator
 ComplexNumber& ComplexNumber::
-               operator=(const ComplexNumber& z)
+operator=(const ComplexNumber& z)
 {
    mRealPart = z.mRealPart;
    mImaginaryPart = z.mImaginaryPart;
@@ -66,7 +66,7 @@ ComplexNumber ComplexNumber::operator-() const
 
 // Overloading the binary + operator
 ComplexNumber ComplexNumber::
-              operator+(const ComplexNumber& z) const
+operator+(const ComplexNumber& z) const
 {
    ComplexNumber w;
    w.mRealPart = mRealPart + z.mRealPart;
@@ -76,7 +76,7 @@ ComplexNumber ComplexNumber::
 
 // Overloading the binary - operator
 ComplexNumber ComplexNumber::
-              operator-(const ComplexNumber& z) const
+operator-(const ComplexNumber& z) const
 {
    ComplexNumber w;
    w.mRealPart = mRealPart - z.mRealPart;
@@ -85,7 +85,7 @@ ComplexNumber ComplexNumber::
 }
 
 // Overloading the insertion << operator
-std::ostream& operator<<(std::ostream& output, 
+std::ostream& operator<<(std::ostream& output,
                          const ComplexNumber& z)
 {
    // Format as "(a + bi)" or as "(a - bi)"
@@ -101,4 +101,27 @@ std::ostream& operator<<(std::ostream& output,
       output << "- " << -z.mImaginaryPart << "i)";
    }
 }
-//Code from Chapter06.tex line 779 save as ComplexNumber.cpp
+
+//New stuff
+
+// Getting private members
+double ComplexNumber::GetRealPart() const
+{
+   return mRealPart;
+}
+
+double ComplexNumber::GetImaginaryPart() const
+{
+   return mImaginaryPart;
+}
+
+// with friend functions
+double RealPart(const ComplexNumber& z)
+{
+   return z.mRealPart;
+}
+
+double ImaginaryPart(const ComplexNumber& z)
+{
+   return z.mImaginaryPart;
+}
