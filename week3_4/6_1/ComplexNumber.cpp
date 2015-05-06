@@ -36,6 +36,11 @@ double ComplexNumber::CalculateArgument() const
 // number must be converted to polar form
 ComplexNumber ComplexNumber::CalculatePower(double n) const
 {
+   if (n == 0)
+   {
+      ComplexNumber z(1);
+      return z;
+   }
    double modulus = CalculateModulus();
    double argument = CalculateArgument();
    double mod_of_result = pow(modulus, n);

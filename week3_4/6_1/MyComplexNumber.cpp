@@ -54,6 +54,11 @@ int main(int argc, char * argv[]) {
     z1.SetConjugate();
     std::cout << "Second test: z1.SetConjugate(); z1 = " << z1 << "\n";
 
+    // Power of zero
+    ComplexNumber z7;
+    z7 = z1.CalculatePower(0.0);
+    std::cout << "z7 = z1^0 = " << z7 << "\n";
+
     return 0;
 }
 
