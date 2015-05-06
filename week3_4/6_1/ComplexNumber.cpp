@@ -125,3 +125,32 @@ double ImaginaryPart(const ComplexNumber& z)
 {
    return z.mImaginaryPart;
 }
+
+// Copy constructor
+ComplexNumber::ComplexNumber(const ComplexNumber& OtherCN)
+{
+   mRealPart = OtherCN.GetRealPart();
+   mImaginaryPart = OtherCN.GetImaginaryPart();
+}
+
+// Custom constructor (one input)
+ComplexNumber::ComplexNumber(double x)
+{
+   mRealPart = x;
+   mImaginaryPart = 0.0;
+}
+
+// Conjugate
+ComplexNumber ComplexNumber::CalculateConjugate() const
+{
+   double r = mRealPart;
+   double i = -mImaginaryPart;
+   ComplexNumber z(r, i);
+   return z;
+}
+
+// Set conjugate
+void ComplexNumber::SetConjugate()
+{
+   mImaginaryPart = - mImaginaryPart;
+}

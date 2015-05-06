@@ -29,6 +29,18 @@ public:
    // With friend functions
    friend double RealPart(const ComplexNumber& z);
    friend double ImaginaryPart(const ComplexNumber& z);
+
+   // Copy constructor
+   ComplexNumber(const ComplexNumber& OtherCN);
+
+   // Custom constructor (one input)
+   ComplexNumber(double x);
+
+   // Conjugate
+   ComplexNumber CalculateConjugate() const;
+
+   // Set conjugate
+   void SetConjugate();
 };
 
 #endif
