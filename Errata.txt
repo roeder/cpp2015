@@ -1,0 +1,86 @@
+p11 S1.4.1
+Published:
+However, it may be mistakenly read to be
+1   int row = 1, column = 2;
+2   ( row = column ) = 3;
+after which row would take the value 2 (which is the initial value of
+column), and column would take the value 3.
+Should read:
+However, it may be mistakenly read to be
+1   int row = 1, column = 2;
+2   ( row = column ) = 3;
+during which row would first take the value 2 (which is the initial value of
+column), and then row (the result of the assignment ( row = column)) would
+take the value 3.  The value of column is unaffected.
+(Thanks to Jerry Hamann 15/01/13)
+
+p22 S1.6
+Published:
+Another advantage of assert statements is that they are automatically
+removed when compiled with the ``-O'' optimisation flag
+Should read:
+Another advantage of assert statements is that they can be automatically
+removed when compiled with the certain flags
+(The necessary flag is -DNDEBUG, which may be set by an optimisation flag 
+in some compilers.  
+Thanks to Luke Chang, 26/09/12)
+
+p37, S2.6.3
+Published:
+The condition which is actually tested is whether or not the assignment is
+successful.  The assignment will be successful, and so this condition is met.
+Should read:
+The condition which is actually tested is obtained from the value of the
+assignment.  A non-zero value is interpreted as success, and so this
+condition is met.
+(Thanks to Jerry Hamann 15/01/13)
+
+p61 S4.2.3 
+Published:
+"This may be clearly be done using the declaration below."
+Should read:
+"This may clearly be done using the declaration below."
+(Thanks to Daniel Drury, 25/03/12)
+
+p109 Listing 6.10 Lines 102 and 103
+Published:
+   }
+}
+Should read:
+   }
+   return output;
+}
+(Code as written may give compiler warning.
+Thanks to Luke Chang, 16/10/12)
+
+p148 Exercise 9.3
+Published:
+...for a value of $y_{i}$ in Problem 7.3 lies in the interval $10^{-6}<y_{i}<0$.
+Should read:
+...for a value of $y_{i}$ in Problem 7.3 lies in the interval $-10^{-6}<y_{i}<0$.
+(JW, 30/10/12)
+
+p238 Listing C.4 LinearSystem.cpp Lines 37 and 38
+Published:
+   Matrix rA = *mpA;
+   Vector rb = *mpb;
+Should read:
+   Matrix& rA = *mpA;
+   Vector& rb = *mpb;
+(Thanks to Chen Xiaolong and Evan Um, 17/09/2012)
+
+p239 Listing C.4 LinearSystem.cpp Line 50
+Published:
+    row = i;
+Should read:
+    row = i;
+    max=fabs(rA(i+1,k+1));
+(Thanks to Etienne Plante, 08/09/2012)
+
+p239 Listing C.4 LinearSystem.cpp Line 53
+Published:
+    assert(row > 0);
+Should read:
+    assert(row >= 0);
+(Thanks to Etienne Plante, 08/09/2012)
+
