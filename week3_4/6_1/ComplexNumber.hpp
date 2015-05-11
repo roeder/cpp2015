@@ -18,29 +18,21 @@ public:
    ComplexNumber operator-() const;
    ComplexNumber operator+(const ComplexNumber& z) const;
    ComplexNumber operator-(const ComplexNumber& z) const;
-   friend std::ostream& operator<<(std::ostream& output, 
-                                   const ComplexNumber& z);
+   friend std::ostream& operator<<(std::ostream& output,const ComplexNumber& z);
 
-   // New stuff
-   // Getting private members
+   //exercise prototypes
    double GetRealPart() const;
    double GetImaginaryPart() const;
-
-   // With friend functions
    friend double RealPart(const ComplexNumber& z);
    friend double ImaginaryPart(const ComplexNumber& z);
-
-   // Copy constructor
-   ComplexNumber(const ComplexNumber& OtherCN);
-
-   // Custom constructor (one input)
-   ComplexNumber(double x);
-
-   // Conjugate
+   ComplexNumber(const ComplexNumber& z);
+   ComplexNumber(double real);
    ComplexNumber CalculateConjugate() const;
-
-   // Set conjugate
    void SetConjugate();
+
+   //not mandatory, but useful for exercise 6.1.7
+   //ComplexNumber operator*(const ComplexNumber& z) const;
+
 };
 
 #endif

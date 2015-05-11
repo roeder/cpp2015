@@ -132,16 +132,16 @@ double ImaginaryPart(const ComplexNumber& z)
 }
 
 // Copy constructor
-ComplexNumber::ComplexNumber(const ComplexNumber& OtherCN)
+ComplexNumber::ComplexNumber(const ComplexNumber&z)
 {
-   mRealPart = OtherCN.GetRealPart();
-   mImaginaryPart = OtherCN.GetImaginaryPart();
+   mRealPart = z.GetRealPart();
+   mImaginaryPart = z.GetImaginaryPart();
 }
 
 // Custom constructor (one input)
-ComplexNumber::ComplexNumber(double x)
+ComplexNumber::ComplexNumber(double real)
 {
-   mRealPart = x;
+   mRealPart = real;
    mImaginaryPart = 0.0;
 }
 
