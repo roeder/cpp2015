@@ -43,6 +43,52 @@ Matrix2x2 Matrix2x2::CalcInverse() const
     return Matrix2x2(val11 / det, -val01 / det, -val10 / det, val00 / det);
 }
 
+Matrix2x2& Matrix2x2::operator=(const Matrix2x2& z)
+{
+    val00 = z.val00;
+    val01 = z.val01;
+    val10 = z.val10;
+    val11 = z.val11;
+    return *this;
+}
+
+Matrix2x2 Matrix2x2::operator-() const
+{
+    return Matrix2x2(-val00, -val01, -val10, -val11);
+}
+
+Matrix2x2 Matrix2x2::operator+(const Matrix2x2& z) const
+{
+    Matrix2x2 w;
+
+    w.val00 = val00 + z.val00;
+    w.val01 = val01 + z.val01;
+    w.val10 = val10 + z.val10;
+    w.val11 = val11 + z.val11;
+
+    return w;
+}
+
+Matrix2x2 Matrix2x2::operator-(const Matrix2x2& z) const
+{
+    Matrix2x2 w;
+
+    w.val00 = val00 - z.val00;
+    w.val01 = val01 - z.val01;
+    w.val10 = val10 - z.val10;
+    w.val11 = val11 - z.val11;
+
+    return w;
+}
+
+void Matrix2x2::MultScalar(double scalar)
+{
+    val00 = scalar * val00;
+    val01 = scalar * val01;
+    val10 = scalar * val10;
+    val11 = scalar * val11;
+}
+
 // Print method for 2x2 matrix
 void Matrix2x2::Print() const
 {

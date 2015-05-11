@@ -17,13 +17,13 @@ class Matrix2x2 {
 		Matrix2x2(double a, double b, double c, double d);
 		double CalcDeterminant() const;
 		Matrix2x2 CalcInverse() const;
-//
-//		Matrix2x2& operator=(const Matrix2x2& z);
-//		Matrix2x2 operator-() const;
-//		Matrix2x2 operator+(const Matrix2x2& z) const;
-//		Matrix2x2 operator-(const Matrix2x2& z) const;
-//
-//		void MultScalar(double scalar);
+
+		Matrix2x2& operator=(const Matrix2x2& z);
+		Matrix2x2 operator-() const;
+		Matrix2x2 operator+(const Matrix2x2& z) const;
+		Matrix2x2 operator-(const Matrix2x2& z) const;
+
+		void MultScalar(double scalar);
 
 		double Getval00() const {return val00;}
 		double Getval01() const {return val01;}

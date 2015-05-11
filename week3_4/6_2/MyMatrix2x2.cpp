@@ -23,5 +23,29 @@ int main(int argc, char * argv[])
     std::cout << "Test inverse: inv(m2):\n";
     m2_inv.Print();
 
+    Matrix2x2 m3;
+    m3 = m2_inv;
+    std::cout << "Test assignment overload\nMatrix m3 = m2_inv:\n";
+    m3.Print();
+
+    Matrix2x2 m4;
+    m4 = -m2;
+    std::cout << "Test unary operator overload\nMatrix m4 = -m2:\n";
+    m4.Print();
+
+    Matrix2x2 m5(1,1,1,1);
+    Matrix2x2 m6;
+    m6 = m2 + m5;
+    std::cout << "Test binary + overload\n";
+    m6.Print();
+
+    m6 = m4 - m5;
+    std::cout << "Test binary - overload\n";
+    m6.Print();
+
+    m6.MultScalar(2.5);
+    std::cout << "Test scalar multiplication\n";
+    m6.Print();
+
     return 0;
 }
