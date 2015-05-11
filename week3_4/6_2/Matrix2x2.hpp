@@ -2,6 +2,7 @@
 #define SUBMISSION_MATRIX2X2_HPP_
 
 #include <iostream>
+#include <cassert>
 
 class Matrix2x2 {
 	private:
@@ -14,8 +15,8 @@ class Matrix2x2 {
 		Matrix2x2();
 		Matrix2x2(const Matrix2x2& other);
 		Matrix2x2(double a, double b, double c, double d);
-//		double CalcDeterminant() const;
-//		Matrix2x2 CalcInverse() const;
+		double CalcDeterminant() const;
+		Matrix2x2 CalcInverse() const;
 //
 //		Matrix2x2& operator=(const Matrix2x2& z);
 //		Matrix2x2 operator-() const;
