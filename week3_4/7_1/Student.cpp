@@ -10,7 +10,7 @@ Student::Student()
 
 Student::Student(std::string name, double fines, double fees)
 {
-    name = name;
+    this->name = name;
     tuition_fees = fees;
     library_fines = fines;
 }
@@ -22,8 +22,8 @@ double Student::MoneyOwed() const
 
 void Student::SetLibraryFines(double amount)
 {
-    assert(amount > 0);
-    library_fines = amount;
+    if(amount > 0)
+        library_fines = amount;
 }
 
 double Student::GetLibraryFines() const{

@@ -7,10 +7,10 @@ GraduateStudent::GraduateStudent() : Student()
 
 GraduateStudent::GraduateStudent(std::string name, double fines, double fees, bool fullTime)
 {
-    name = name;
+    this->name = name;
     tuition_fees = fees;
     SetLibraryFines(fines);
-    fullTime = fullTime;
+    this->fullTime = fullTime;
 }
 
 double GraduateStudent::MoneyOwed() const

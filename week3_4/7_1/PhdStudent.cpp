@@ -2,10 +2,10 @@
 
 PhdStudent::PhdStudent(std::string name, double fines, double fees, bool fullTime)
 {
-    name = name;
+    this->name = name;
     tuition_fees = fees;
     SetLibraryFines(fines);
-    fullTime = fullTime;
+    this->fullTime = fullTime;
 }
 
 double PhdStudent::MoneyOwed() const
