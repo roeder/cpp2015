@@ -2,6 +2,6 @@
 
 OutOfRangeException::OutOfRangeException(std::string prob)
 {
-    mTag = "OUT_OF_RANGE";
-    mProblem = prob;
+    SetTag("OUT_OF_RANGE");
+    SetProblem(prob);
 }

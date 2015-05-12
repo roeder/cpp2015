@@ -2,6 +2,6 @@
 
 FileNotOpenException::FileNotOpenException(std::string prob)
 {
-    mTag = "FILE_NOT_OPEN";
-    mProblem = prob;
+    SetTag("FILE_NOT_OPEN");
+    SetProblem(prob);
 }
