@@ -49,3 +49,39 @@ int main(int argc, char * argv[])
 
     return 0;
 }
+
+/*
+Test default constructor
+Matrix m1:
+0 0
+0 0
+Test custom constructor
+Matrix m2:
+4.2 13
+8 76
+Test copy constructor
+Matrix m_copy (copy of m2):
+4.2 13
+8 76
+Test determinant: det(m2): 215.2
+Test inverse: inv(m2):
+0.35316 -0.0604089
+-0.0371747 0.0195167
+Test assignment overload
+Matrix m3 = m2_inv:
+0.35316 -0.0604089
+-0.0371747 0.0195167
+Test unary operator overload
+Matrix m4 = -m2:
+-4.2 -13
+-8 -76
+Test binary + overload
+5.2 14
+9 77
+Test binary - overload
+-5.2 -14
+-9 -77
+Test scalar multiplication
+-13 -35
+-22.5 -192.5
+ */

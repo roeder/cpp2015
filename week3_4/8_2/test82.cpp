@@ -27,3 +27,11 @@ template<typename T> T CalcAbs(T val) {
     return result;
 }
 
+/*
+5.4
+0
+8
+42
+42.8
+ */
+

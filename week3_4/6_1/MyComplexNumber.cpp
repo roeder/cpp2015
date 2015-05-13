@@ -78,6 +78,10 @@ int main(int argc, char * argv[]) {
 //Copy constructor test: z_copy = (4 + 3i)
 //Custom constructor test: z5 = (4.2 + 0i)
 //Conjugate test: conj(z1) = (4 - 3i)
+//Set conjugate test: z1.SetConjugate(); z1 = (4 - 3i)
+//Second test: z1.SetConjugate(); z1 = (4 + 3i)
+//z7 = z1^0 = (1 + 0i)
+
 
 
 

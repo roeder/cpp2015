@@ -10,17 +10,24 @@ int main(int argc, char * argv[])
 
     std::cout << Timo.tuition_fees << "\n";
 
-    PhdStudent Janine("Janine", 30, 10000, 1);
+    PhdStudent Hans("Hans", 30, 10000, 1);
 
-    std::cout << Janine.GetLibraryFines() << "\n";
+    std::cout << Hans.GetLibraryFines() << "\n";
 
-    Janine.SetLibraryFines(-42);
+    Hans.SetLibraryFines(-42);
 
-    std::cout << "First test: set(-42): " << Janine.GetLibraryFines() << "\n";
+    std::cout << "First test: set(-42): " << Hans.GetLibraryFines() << "\n";
 
-    Janine.SetLibraryFines(42);
+    Hans.SetLibraryFines(42);
 
-    std::cout << "Second test: set(42): " << Janine.GetLibraryFines() << "\n";
+    std::cout << "Second test: set(42): " << Hans.GetLibraryFines() << "\n";
 
     return 0;
 }
+
+/*
+500
+30
+First test: set(-42): 30
+Second test: set(42): 42
+*/
