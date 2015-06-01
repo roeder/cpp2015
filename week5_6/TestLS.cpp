@@ -135,4 +135,17 @@ Solution:
 -10 4 11
 Scalar product: b * b:
 194
+ Test Gradient Solve method - Matrix A2:
+16 3 4 2
+3 12 2 -1
+4 2 8 -1
+2 -1 -1 2
+Vector b2:
+25 16 13 2
+1.83109
+1.33854
+0.912391
+3.59685e-14
+Solution:
+1.01542 0.929939 1.07421 0.809955
  */
