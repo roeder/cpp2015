@@ -15,34 +15,36 @@ PosDefSymmLinearSystem::PosDefSymmLinearSystem(const Matrix& A, const Vector& b,
 Vector PosDefSymmLinearSystem::Solve()
 {
     int n = mSize;
-    Vector x(n);
-    Vector x_next(n);
 
     Matrix& A = *mpA;
     Vector& b = *mpb;
 
-    int k = 0;
+    int k;
+
     Vector r(n);
     Vector r_prev(n);
-    r = b - A * x;
 
-    Vector p(n);
-    double beta = 0;
     double alpha;
+    double beta;
+    Vector x(n);
+    Vector x_next(n);
+
+    k = 0;
+    r = b - A * x;
+    Vector p(n);
+    beta = 0;
 
     while (r.CalculateNorm() >= epsilon)
     {
         if (k > 0)
-        {
             beta = (r * r) / (r_prev * r_prev);
-            x = x_next;
-        }
+
         p = r + p * beta;
-        alpha = (r *r) / ((p * A) * p);
-        x_next = x + p * alpha;
+        alpha = (r *r) / (p * A * p);
+        x = x + p * alpha;
         r_prev = r;
-        r = b - A * x_next;
-        ++k;
+        r = b - A * x;
+        k++;
         std::cout << r.CalculateNorm() << "\n";
     }
     return x;

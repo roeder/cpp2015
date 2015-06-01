@@ -99,7 +99,7 @@ int main()
     std::cout << "Vector b2:\n";
     b2.Print();
 
-    PosDefSymmLinearSystem ls2(A2, b2, 0.01);
+    PosDefSymmLinearSystem ls2(A2, b2, 0.001);
 
     Vector solution2(4);
 
