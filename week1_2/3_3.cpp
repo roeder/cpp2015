@@ -3,12 +3,12 @@
 #include <fstream>
 #include "3_3.h"
 
-int main(int argc, char* argv[]) {
-
-    implicit_Euler(10);
-
-    return 0;
-}
+//int main(int argc, char* argv[]) {
+//
+//    implicit_Euler(25);
+//
+//    return 0;
+//}
 
 void implicit_Euler(int n)
 {
@@ -34,7 +34,5 @@ void implicit_Euler(int n)
         write_file << x << "," << y[i] << "\n";
         write_file.flush();
     }
-
     write_file.close();
-
 }

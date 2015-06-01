@@ -3,59 +3,59 @@
 #include <iostream>
 #include "5_9.h"
 
-int main(int argc, char* argv[]) {
-
-    double** A;
-    A = AllocateMatrixMemory(3, 3);
-
-    A[0][0] = 1;
-    A[0][1] = -1;
-    A[0][2] = 2;
-    A[1][0] = 0;
-    A[1][1] = 0;
-    A[1][2] = -1;
-    A[2][0] = 0;
-    A[2][1] = 2;
-    A[2][2] = -1;
-
-    std::cout << "Matrix A is\n";
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            std::cout.flush() << A[i][j] << " ";
-        }
-        std::cout.flush() << '\n';
-    }
-
-    double* b;
-    b = new double[3];
-
-    b[0] = 8;
-    b[1] = -11;
-    b[2] = -3;
-
-    std::cout << "Vector b is\n";
-    for (int k = 0; k < 3; ++k) {
-        std::cout.flush() << b[k] << "\n";
-    }
-
-    double* u;
-    u = new double[3];
-
-    solve3by3(A, b, u);
-
-    PrintTriangular(A, b, 3);
-
-    std::cout << "Solved vector u is\n";
-    for (int k = 0; k < 3; ++k) {
-        std::cout.flush() << u[k] << "\n";
-    }
-
-    FreeMatrixMemory(3, A);
-    delete[] b;
-    delete[] u;
-
-    return 0;
-}
+//int main(int argc, char* argv[]) {
+//
+//    double** A;
+//    A = AllocateMatrixMemory(3, 3);
+//
+//    A[0][0] = 1;
+//    A[0][1] = -1;
+//    A[0][2] = 2;
+//    A[1][0] = 0;
+//    A[1][1] = 0;
+//    A[1][2] = -1;
+//    A[2][0] = 0;
+//    A[2][1] = 2;
+//    A[2][2] = -1;
+//
+//    std::cout << "Matrix A is\n";
+//    for (int i = 0; i < 3; ++i) {
+//        for (int j = 0; j < 3; ++j) {
+//            std::cout.flush() << A[i][j] << " ";
+//        }
+//        std::cout.flush() << '\n';
+//    }
+//
+//    double* b;
+//    b = new double[3];
+//
+//    b[0] = 8;
+//    b[1] = -11;
+//    b[2] = -3;
+//
+//    std::cout << "Vector b is\n";
+//    for (int k = 0; k < 3; ++k) {
+//        std::cout.flush() << b[k] << "\n";
+//    }
+//
+//    double* u;
+//    u = new double[3];
+//
+//    solve3by3(A, b, u);
+//
+//    PrintTriangular(A, b, 3);
+//
+//    std::cout << "Solved vector u is\n";
+//    for (int k = 0; k < 3; ++k) {
+//        std::cout.flush() << u[k] << "\n";
+//    }
+//
+//    FreeMatrixMemory(3, A);
+//    delete[] b;
+//    delete[] u;
+//
+//    return 0;
+//}
 
 void solve3by3(double **A, double *b, double *u){
 
@@ -124,43 +124,43 @@ void solve3by3(double **A, double *b, double *u){
 
 }
 
-double** AllocateMatrixMemory(int numRows, int numCols)
-{
-    double** matrix;
-    matrix = new double* [numRows];
-    for (int i=0; i<numRows; i++)
-    {
-        matrix[i] = new double [numCols];
-    }
-    return matrix;
-}
-
-void FreeMatrixMemory(int numRows, double ** matrix)
-{
-    for (int i = 0; i < numRows; i++) {
-        delete[] matrix[i];
-    }
-    delete[] matrix;
-}
-
-void PrintTriangular(double** A, double* b, int n)
-{
-    std::cout << "Triangular system:\n";
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            std::cout.flush() << A[i][j] << " ";
-        }
-        std::cout.flush() << "| " << b[i] << '\n';
-    }
-}
-
-void PrintSquareMatrix(double** A, int n)
-{
-    std::cout << "Matrix:\n";
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            std::cout.flush() << A[i][j] << " ";
-        }
-        std::cout.flush() << '\n';
-    }
-}
+//double** AllocateMatrixMemory(int numRows, int numCols)
+//{
+//    double** matrix;
+//    matrix = new double* [numRows];
+//    for (int i=0; i<numRows; i++)
+//    {
+//        matrix[i] = new double [numCols];
+//    }
+//    return matrix;
+//}
+//
+//void FreeMatrixMemory(int numRows, double ** matrix)
+//{
+//    for (int i = 0; i < numRows; i++) {
+//        delete[] matrix[i];
+//    }
+//    delete[] matrix;
+//}
+//
+//void PrintTriangular(double** A, double* b, int n)
+//{
+//    std::cout << "Triangular system:\n";
+//    for (int i = 0; i < n; ++i) {
+//        for (int j = 0; j < n; ++j) {
+//            std::cout.flush() << A[i][j] << " ";
+//        }
+//        std::cout.flush() << "| " << b[i] << '\n';
+//    }
+//}
+//
+//void PrintSquareMatrix(double** A, int n)
+//{
+//    std::cout << "Matrix:\n";
+//    for (int i = 0; i < n; ++i) {
+//        for (int j = 0; j < n; ++j) {
+//            std::cout.flush() << A[i][j] << " ";
+//        }
+//        std::cout.flush() << '\n';
+//    }
+//}

@@ -1,6 +1,3 @@
-#include <cmath>
-#include <iostream>
-#include <cassert>
 #include "Vector.hpp"
 
 // Overridden copy constructor
@@ -157,4 +154,19 @@ double Vector::CalculateNorm(int p) const
 int length(const Vector& v)
 {
    return v.mSize;
+}
+
+void Vector::Print() const
+{
+   int n = mSize;
+
+   for (int i = 0; i < n; ++i) {
+      std::cout << mData[i] << " ";
+   }
+   std::cout << "\n";
+}
+
+void Vector::SetValue(double val, int i)
+{
+   mData[i] = val;
 }

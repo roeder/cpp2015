@@ -1,6 +1,10 @@
 #ifndef VECTORHEADERDEF
 #define VECTORHEADERDEF
 
+#include <cmath>
+#include <iostream>
+#include <cassert>
+
 class Vector
 {
 private:
@@ -27,6 +31,8 @@ public:
    double CalculateNorm(int p=2) const;
    // declare length function as a friend
    friend int length(const Vector& v);
+   void Print() const;
+   void SetValue(double val, int i);
 };
 
 // Prototype signature of length() friend function

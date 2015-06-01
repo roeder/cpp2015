@@ -1,6 +1,9 @@
 #ifndef MATRIXHEADERDEF
 #define MATRIXHEADERDEF
 #include "Vector.hpp"
+#include <cmath>
+#include <iostream>
+#include <cassert>
 
 class Matrix
 {
@@ -24,10 +27,10 @@ public:
    Matrix operator*(double a) const;
    double CalculateDeterminant() const;
    // declare vector multiplication friendship
-   friend Vector operator*(const Matrix& m, 
-                           const Vector& v);
-   friend Vector operator*(const Vector& v, 
-                           const Matrix& m);
+   friend Vector operator*(const Matrix& m, const Vector& v);
+   friend Vector operator*(const Vector& v, const Matrix& m);
+   void Print() const;
+   //void SetValue(double val, int i);
 };
 // prototype signatures for friend operators
 Vector operator*(const Matrix& m, const Vector& v);
