@@ -2,27 +2,13 @@
 #include <cassert>
 #include "PosDefSymmLinearSystem.hpp"
 
-PosDefSymmLinearSystem::PosDefSymmLinearSystem(const Matrix& A, const Vector& b, double epsilon)
+PosDefSymmLinearSystem::PosDefSymmLinearSystem(const Matrix& A, const Vector& b, double epsilon):LinearSystem(A, b)
 {
-    int n = b.GetSize();
-    bool symm_check = true;
-
-    for (int i = 1; i < n + 1; ++i)
-    {
-        for (int j = 1; j < n + 1; ++j)
-        {
-            if (A(i, j) != A(j, i))
-                symm_check = false;
-        }
-    }
-
-    assert(symm_check);
-    assert(A.GetNumberOfColumns() == n);
-    assert(A.GetNumberOfRows() == n);
-
-    mSize = n;
-    mpA = new Matrix(A);
-    mpb = new Vector(b);
+//    int n = b.GetSize();
+//
+//    mSize = n;
+//    mpA = new Matrix(A);
+//    mpb = new Vector(b);
     this->epsilon = epsilon;
 }
 
@@ -42,17 +28,22 @@ Vector PosDefSymmLinearSystem::Solve()
 
     Vector p(n);
     double beta = 0;
+    double alpha;
 
-    while (r.CalculateNorm(2) >= epsilon)
+    while (r.CalculateNorm() >= epsilon)
     {
         if (k > 0)
+        {
             beta = (r * r) / (r_prev * r_prev);
-        p = r + beta * p;
+            x = x_next;
+        }
+        p = r + p * beta;
         alpha = (r *r) / ((p * A) * p);
-        x_next = x + alpha * p;
+        x_next = x + p * alpha;
         r_prev = r;
         r = b - A * x_next;
-        k++;
+        ++k;
+        std::cout << r.CalculateNorm() << "\n";
     }
     return x;
 }

@@ -68,33 +68,40 @@ int main()
 
     std::cout << "Scalar product: b * b:\n" << b * b << "\n";
 
-    Matrix A2(3, 3);
+    Matrix A2(4, 4);
 
-    A2(1, 1) = 1;
-    A2(1, 2) = 4;
-    A2(1, 3) = 7;
-    A2(2, 1) = 4;
-    A2(2, 2) = 1;
+    A2(1, 1) = 16;
+    A2(1, 2) = 3;
+    A2(1, 3) = 4;
+    A2(1, 4) = 2;
+    A2(2, 1) = 3;
+    A2(2, 2) = 12;
     A2(2, 3) = 2;
-    A2(3, 1) = 7;
+    A2(2,4) = -1;
+    A2(3, 1) = 4;
     A2(3, 2) = 2;
-    A2(3, 3) = 1;
+    A2(3, 3) = 8;
+    A2(3, 4) =-1;
+    A2(4, 1) = 2;
+    A2(4, 2) = -1;
+    A2(4, 3) = -1;
+    A2(4, 4) =2;
 
     std::cout << "Test Gradient Solve method - Matrix A2:\n";
     A2.Print();
 
-    Vector b2(3);
+    Vector b2(4);
 
-    b2[0] = 5;
-    b2[1] = 2;
-    b2[2] = 8;
-
+    b2[0] = 25;
+    b2[1] = 16;
+    b2[2] = 13;
+    b2[3] = 2;
     std::cout << "Vector b2:\n";
     b2.Print();
 
-    PosDefSymmLinearSystem ls2(A2, b2, 0.0001);
+    PosDefSymmLinearSystem ls2(A2, b2, 0.01);
 
-    Vector solution2(3);
+    Vector solution2(4);
 
     solution2 = ls2.Solve();
 
