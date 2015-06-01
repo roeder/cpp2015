@@ -126,6 +126,19 @@ Vector Vector::operator-(const Vector& v1) const
    return v;
 }
 
+// Overloading the binary * operator
+double Vector::operator*(const Vector& v1) const
+{
+   assert(mSize == v1.mSize);
+   double total = 0;
+
+   for (int i=0; i<mSize; i++)
+   {
+      total += mData[i] * v1.mData[i];
+   }
+   return total;
+}
+
 // Overloading scalar multiplication
 Vector Vector::operator*(double a) const
 {

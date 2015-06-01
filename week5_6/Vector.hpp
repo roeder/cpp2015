@@ -25,6 +25,7 @@ public:
    Vector operator-() const; // unary -
    Vector operator+(const Vector& v1) const; // binary +
    Vector operator-(const Vector& v1) const; // binary -
+   double operator*(const Vector& v1) const; // binary *
    // scalar multiplication
    Vector operator*(double a) const;
    // p-norm method

@@ -9,7 +9,7 @@ class PosDefSymmLinearSystem : public LinearSystem
 private:
 	double epsilon;
 public:
-	PosDefSymmLinearSystem(const Matrix& A, const Vector& b, const double epsilon);
+	PosDefSymmLinearSystem(const Matrix& A, const Vector& b, double epsilon);
 	virtual Vector Solve();
 };
 

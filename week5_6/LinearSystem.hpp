@@ -2,14 +2,17 @@
 #define LINEARSYSTEMHEADERDEF
 #include "Vector.hpp"
 #include "Matrix.hpp"
+#include <cmath>
+#include <iostream>
+#include <cassert>
 
 class LinearSystem
 {
-private:
+protected:
    int mSize; // size of linear system
    Matrix* mpA;  // matrix for linear system
    Vector* mpb;  // vector for linear system
-
+private:
    // Only allow constructor that specifies matrix and 
    // vector to be used.  Copy constructor is private.
    LinearSystem(const LinearSystem& otherLinearSystem){};

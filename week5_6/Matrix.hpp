@@ -17,6 +17,7 @@ public:
    int GetNumberOfRows() const;
    int GetNumberOfColumns() const;
    double& operator()(int i, int j); //1-based indexing
+//   double& operator[](int i, int j); //0-based indexing
    //overloaded assignment operator
    Matrix& operator=(const Matrix& otherMatrix);
    Matrix operator+() const; // unary +
@@ -30,7 +31,7 @@ public:
    friend Vector operator*(const Matrix& m, const Vector& v);
    friend Vector operator*(const Vector& v, const Matrix& m);
    void Print() const;
-   //void SetValue(double val, int i);
+   void SetValue(double val, int i, int j);
 };
 // prototype signatures for friend operators
 Vector operator*(const Matrix& m, const Vector& v);

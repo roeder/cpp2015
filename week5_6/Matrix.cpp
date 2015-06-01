@@ -86,6 +86,18 @@ double& Matrix::operator()(int i, int j)
     return mData[i - 1][j - 1];
 }
 
+//// Round brackets overload with 1-based indexing
+//double& Matrix::operator[](int i, int j)
+//{
+//    assert(i > 0);
+//    assert(j > 0);
+//
+//    assert(i < mNumRows);
+//    assert(j < mNumCols);
+//
+//    return mData[i][j];
+//}
+
 // Overload assignment operator
 Matrix& Matrix::operator=(const Matrix& otherMatrix)
 {
@@ -268,4 +280,9 @@ void Matrix::Print() const
         }
         std::cout << "\n";
     }
+}
+
+void Matrix::SetValue(double val, int i, int j)
+{
+    mData[i][j] = val;
 }
