@@ -15,7 +15,7 @@ BvpOde::BvpOde(SecondOrderOde* pOde, BoundaryConditions* pBcs, int numNodes)
    mpRhsVec = new Vector(mNumNodes);
    mpLhsMat = new Matrix(mNumNodes, mNumNodes);
 
-   mFilename = "ode_output.dat";
+   mFilename = "default_output.dat";
    mpLinearSystem = NULL;
 }
 
