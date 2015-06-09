@@ -21,7 +21,16 @@ public:
    SecondOrderOde(double coeffUxx, double coeffUx, 
                   double coeffU, 
                   double (*righthandSide)(double),
-                  double xMinimum, double xMaximum);
+                  double xMinimum, double xMaximum)
+   {
+      mCoeffOfUxx = coeffUxx;
+      mCoeffOfUx = coeffUx;
+      mCoeffOfU = coeffU;
+      mpRhsFunc = righthandSide;
+      mXmin = xMinimum;
+      mXmax = xMaximum;
+   }
 };
 
 #endif
+//Code from Chapter12.tex line 239 save as SecondOrderOde.hpp
