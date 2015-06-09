@@ -31,10 +31,10 @@ int main(int argc, char* argv[])
 
     std::vector<Node> custom_nodes;
 
-    double h = 0.05;
+    double h = 0.01;
     double x0 = 0;
 
-    for (int i = 0; i < 21; i++)
+    for (int i = 0; i < 101; i++)
     {
         Node node;
         node.coordinate = x0 + i * h;
