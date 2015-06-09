@@ -57,8 +57,7 @@ public:
    BvpOde(SecondOrderOde* pOde, BoundaryConditions* pBcs, int numNodes);
 
    // new constructor to set the grid as a vector of nodes
-   //BvpOde(SecondOrderOde* pOde, BoundaryConditions* pBcs,
-		   //std::vector<Node> nodes);
+   BvpOde(SecondOrderOde* pOde, BoundaryConditions* pBcs, std::vector<Node> nodes);
 
    // As memory is dynamically allocated the destructor
    // is overridden

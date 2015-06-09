@@ -1,4 +1,5 @@
 #include <cassert>
+#include <cmath>
 #include "FiniteDifferenceGrid.hpp"
 #include "Node.hpp"
 
@@ -15,3 +16,12 @@ FiniteDifferenceGrid::FiniteDifferenceGrid(int numNodes, double xMin, double xMa
    }
 }
 
+FiniteDifferenceGrid::FiniteDifferenceGrid(std::vector<Node> nodes, double xMin, double xMax)
+{
+   int n = nodes.size();
+
+   assert(fabs(nodes[0].coordinate - xMin) < 1.0e-6);
+   assert(fabs(nodes[n - 1].coordinate - xMax) < 1.0e-6);
+
+   mNodes = nodes;
+}

@@ -15,8 +15,7 @@ public:
    FiniteDifferenceGrid(int numNodes, double xMin, 
                         double xMax);
 
-   // NEW CONSTRUCTOR!!
-   //FiniteDifferenceGrid(std::vector<Node> nodes, double xMin, double xMax);
+   FiniteDifferenceGrid(std::vector<Node> nodes, double xMin, double xMax);
 };
 
 #endif

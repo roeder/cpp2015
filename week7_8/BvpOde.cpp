@@ -15,7 +15,23 @@ BvpOde::BvpOde(SecondOrderOde* pOde, BoundaryConditions* pBcs, int numNodes)
    mpRhsVec = new Vector(mNumNodes);
    mpLhsMat = new Matrix(mNumNodes, mNumNodes);
 
-   mFilename = "default_output.dat";
+   mFilename = "ode_default_output.dat";
+   mpLinearSystem = NULL;
+}
+
+BvpOde::BvpOde(SecondOrderOde* pOde, BoundaryConditions* pBcs, std::vector<Node> nodes)
+{
+   mpOde = pOde;
+   mpBconds = pBcs;
+
+   mNumNodes = nodes.size();
+   mpGrid = new FiniteDifferenceGrid(nodes, pOde->mXmin, pOde->mXmax);
+
+   mpSolVec = new Vector(mNumNodes);
+   mpRhsVec = new Vector(mNumNodes);
+   mpLhsMat = new Matrix(mNumNodes, mNumNodes);
+
+   mFilename = "ode_nonuniform_default_output.dat";
    mpLinearSystem = NULL;
 }
 
