@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
     bvpode_mp2.SetFilename("model_problem_results2.dat");
     bvpode_mp2.Solve();
 
-    std::vector<Node> custom_nodes;
+    std::vector<Node> nodesnodes;
 
     double h = 0.01;
     double x0 = 0;
@@ -38,10 +38,10 @@ int main(int argc, char* argv[])
     {
         Node node;
         node.coordinate = x0 + i * h;
-        custom_nodes.push_back(node);
+        nodesnodes.push_back(node);
     }
 
-    BvpOde bvpode_mp3(&ode_mp1, &bc_mp1, custom_nodes);
+    BvpOde bvpode_mp3(&ode_mp1, &bc_mp1, nodesnodes);
     bvpode_mp3.SetFilename("model_problem_results3.dat");
     bvpode_mp3.Solve();
 

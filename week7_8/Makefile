@@ -1,6 +1,3 @@
-SecondOrderOde.o : SecondOrderOde.cpp SecondOrderOde.hpp
-	g++ -Wall -c -O SecondOrderOde.cpp
-
 BoundaryConditions.o : BoundaryConditions.cpp BoundaryConditions.hpp
 	g++ -Wall -c -O BoundaryConditions.cpp
 
@@ -23,4 +20,4 @@ TestOde.o : TestOde.cpp BvpOde.o
 	g++ -Wall -c -O TestOde.cpp
 
 run : TestOde.o
-	g++ -Wall -O -o run SecondOrderOde.o BoundaryConditions.o FiniteDifferenceGrid.o Vector.o Matrix.o LinearSystem.o BvpOde.o TestOde.o
+	g++ -Wall -O -o run BoundaryConditions.o FiniteDifferenceGrid.o Vector.o Matrix.o LinearSystem.o BvpOde.o TestOde.o
